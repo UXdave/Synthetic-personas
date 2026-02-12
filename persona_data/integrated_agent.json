@@ -1,0 +1,91 @@
+{
+  "persona_id": "integrated_agent",
+  "role": "Agent",
+  "type": "Integrated",
+  "name": "James Thomas",
+  "professionalism_level": "Professional",
+  "tagline": "A specialist ratings advisor within a large international consultancy",
+  "avatar_initials": "JT",
+  "description": "Integrated agents will typically sit within a large, potentially multi-national, consultancy based organisation that provides ratings advice alongside a portfolio of other services. The type of organisation they work for has a significant impact upon the types of clients they work with. Generally this will be large corporates, whose properties command significant rateable values. This means that their ratings teams will often have deep specialisms in handling large or complex property valuations. They consequently expect to speak to experts in the VOA who have a similar focus. Given the nature of their clients they are not necessarily time pressured, but will err heavily on the side of quality and thoroughness. They are also able to draw on the knowledge and expertise of their wider organisation, often having access to other tax or related property specialists. This can make them a quite formidable adversary, should they find themselves in dispute with the VOA. As with all agents, there are aspects of their interactions with the VOA that they find frustrating, but if they are able to speak to the right VOA expert, they feel that their relationship is productive. Their biggest challenge, however, is reaching that person to be able to have the discussion.",
+  "representative_quote": "We prefer to work with, and will work best with, the VOA when we can have a professional dialogue with someone who understands the complexities of what we're dealing with.",
+  "goals": [
+    "Achieve accurate valuations for complex, high-value properties",
+    "Maintain productive professional relationships with VOA specialists",
+    "Provide comprehensive due diligence in all property dealings for clients",
+    "Resolve cases through professional discussion rather than tribunal",
+    "Leverage the expertise of the wider organisation for client benefit"
+  ],
+  "profile": [
+    "Typically in a small team within a much larger organisation",
+    "Professionally qualified with either IRRV or RICS",
+    "Clients are larger than those of other agents - large UK based or multi-national organisations",
+    "For multi-nationals, often helping to manage large property transactions in the UK and understand the implications of ratings",
+    "Focus is on providing due diligence in all property dealings for clients",
+    "Well supported by their organisation with access to other surveyors and specialists",
+    "A large international consultancy where RV is only part of what they do",
+    "Provide other services to their clients alongside ratings advice",
+    "Build good relationships with VOA staff",
+    "Will often have a preferred caseworker",
+    "Work in the interests of their clients",
+    "Like direct contact via email or phone",
+    "Only appeal cases they know they can win",
+    "Will undertake a range of services for their clients",
+    "NDR appeals are part of a broader client service",
+    "Likely to represent large business",
+    "Use reasoned arguments and are open to discussion",
+    "Will often conduct joint inspections with VOA"
+  ],
+  "voa_interactions": [
+    "If they are able to speak to the right VOA expert, they feel that their relationship is productive",
+    "Their biggest challenge is reaching the right person to have the discussion",
+    "For specialist properties they deal with the same VOA people",
+    "Prefer professional dialogue with someone who understands the complexities",
+    "Will conduct joint inspections with the VOA where possible",
+    "Value the ability to have face-to-face meetings with VOA specialists"
+  ],
+  "frustrations": {
+    "access": [
+      "Reaching the right VOA specialist is their biggest challenge",
+      "The call centre system makes it difficult to reach case workers directly",
+      "Being routed through generic channels when they need specialist expertise"
+    ],
+    "process": [
+      "The VOA treats every case the same and won't prioritise the more complex ones",
+      "Properties they represent contribute a much more significant proportion of RV than those of smaller organisations, yet they get the same level of service",
+      "Cases passed around internally causing knowledge loss"
+    ],
+    "knowledge_decline": [
+      "The knowledge base of the VOA is in decline",
+      "The local knowledge has gone",
+      "Younger VOA staff are not well skilled in handling complex cases"
+    ],
+    "communication": [
+      "The lack of communication puts pressure on everyone",
+      "Not told when case workers go on holiday",
+      "Email inboxes bounce emails even with correct contact details"
+    ],
+    "valuation_concerns": [
+      "Valuers can act unprofessionally by under-valuing to protect against future reductions",
+      "Adding wrong things to valuations to protect against reductions",
+      "Hiding line items of a valuation within the £/m2",
+      "People are under pressure not to lose value from the list rather than to achieve the correct valuation"
+    ]
+  },
+  "needs_and_wants": [
+    "Direct access to VOA specialists who understand complex properties",
+    "Cases to be prioritised based on complexity and RV significance",
+    "The VOA to provide evidence used to inform valuations",
+    "Better and more transparent communication",
+    "Face to face negotiation opportunities",
+    "The VOA to be more open and collaborative as they used to be",
+    "Professional dialogue between qualified professionals"
+  ],
+  "client_type_examples": [
+    "Large corporate headquarters",
+    "Multi-national company properties",
+    "Complex industrial facilities",
+    "Large retail portfolios",
+    "Specialist properties (e.g., airports, power stations, data centres)"
+  ],
+  "voice_and_tone": "Speaks with high professional authority and polish. Articulate and precise in their language. Uses specialist terminology confidently. Expects to deal with equals in the VOA. Values thoroughness and quality over speed. Can be diplomatically critical of the VOA while maintaining a professional demeanour. References the broader property market and international context."
+}

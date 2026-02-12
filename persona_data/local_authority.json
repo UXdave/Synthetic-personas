@@ -1,0 +1,89 @@
+{
+  "persona_id": "local_authority",
+  "role": "Local Authority",
+  "name": "Joe Howlett",
+  "professionalism_level": "Semi-Professional",
+  "tagline": "A council officer managing the interface between ratepayers and the VOA",
+  "avatar_initials": "JH",
+  "description": "Local Authorities can interact with the VOA on a variety of levels and for a variety of reasons. In many cases they are the first point of contact for a council tax payer or ratepayer when they have a property related enquiry. In this context, much of what the Local Authority does at this point can frame the journey that the member of the public will have with the VOA. The volume of enquiries a Local Authority will receive is governed by its size and the composition of residential and business premises within its boundary. The larger authorities will receive significant levels of contact, with one authority reporting 2,500 NDR calls and 12,500 CT calls per month. Due to changes in the way LAs are funded they can keep up to 50% of the business rate charges they collect. These changes were driven by government in an attempt to give more control to LAs over their funding. The changes in funding mean LAs are significantly impacted by changes the VOA make to rateable value. Therefore they have a strong interest in the VOA and its work.",
+  "representative_quote": "We're on the same side trying to do the same thing, but it's harder to collaborate than it needs to be",
+  "additional_quote": "We're not sure that the VOA has really grasped the impact of business rates retention on us and the way we work",
+  "goals": [
+    "Maintain accurate understanding of the ratings list for revenue forecasting",
+    "Ensure timely notification of changes to rateable values",
+    "Ensure new properties are added to the list quickly",
+    "Collaborate effectively with the VOA on property matters",
+    "Provide good service to council tax payers and ratepayers who contact them",
+    "Manage the financial impact of business rates retention"
+  ],
+  "profile": [
+    "First point of contact for many council tax payers and ratepayers",
+    "Volume of enquiries governed by authority size and property composition",
+    "Larger authorities receive significant contact volumes - up to 12,500 CT calls and 2,500 NDR calls per month",
+    "Can keep up to 50% of business rate charges collected under rates retention",
+    "Significantly impacted by changes the VOA make to rateable value",
+    "Strong interest in the VOA's work due to funding implications",
+    "Frame the journey that members of the public have with the VOA"
+  ],
+  "interactions_with_customers": [
+    "Majority of contact with CT and NDR customers is around billing or billing enforcement",
+    "A small proportion of customer contact requires referral to the VOA",
+    "Those with good VOA relationships are well versed in what types of query should be referred and to whom",
+    "Ratings agents interact mainly to gain access to information via FOI requests",
+    "No interaction with Council Tax agents, but some send periodic leaflets warning about cowboy agents"
+  ],
+  "main_goals_detail": "Owing to the impact on funding, Local Authorities are most concerned with Business Rates and Rates Retention. This drives them to have as complete an understanding of the ratings list as possible. They are very keen to understand, well in advance, any changes to the list, particularly where rateable values are being reduced or properties removed. They are also keen to ensure new properties are added to the list in a timely manner.",
+  "voa_interactions": [
+    "Paint a varied picture - some very happy with collaboration, others have less positive experience",
+    "LARMs (Local Authority Relationship Managers) are universally praised but only work at a high level",
+    "Desire for increased contact on an operational level",
+    "Some LAs have achieved operational-level contact and are very happy with it",
+    "Most contact is by phone, email, and through the Backtrans system schedule"
+  ],
+  "frustrations": {
+    "data_sharing": [
+      "The lack of data sharing in recent years makes things more difficult",
+      "Particularly frustrating when identifying who is occupying a property",
+      "LAs understand why the VOA cannot share certain information, but it remains frustrating"
+    ],
+    "forecasting": [
+      "Forecasting is a major activity and LAs rely on the VOA to keep them informed of potential changes to the list",
+      "If the VOA fail to inform the LA of large changes, this can be extremely problematic",
+      "Instances where timely notification of changes to the list don't occur"
+    ],
+    "appeals": [
+      "Outcomes of appeals cause frustration as they can lead to revenue losses",
+      "Low influence LAs have over appeals in their region",
+      "The slow speed of the appeals process exacerbates concerns",
+      "The financial impact of rate reductions"
+    ],
+    "operational": [
+      "Errors on the schedule and the time it takes to correct them",
+      "Harder to collaborate than it needs to be despite being on the same side"
+    ]
+  },
+  "needs": [
+    "Better data sharing with the VOA",
+    "Timely notification of changes to the ratings list",
+    "Increased operational-level contact with VOA (beyond LARMs)",
+    "Collaboration wherever possible",
+    "Understanding of the impact of business rates retention on LA operations",
+    "Quick correction of errors on the schedule"
+  ],
+  "most_valued": [
+    "LARMs (Local Authority Relationship Managers)",
+    "Collaboration wherever possible with the VOA"
+  ],
+  "most_frustrated_by": [
+    "The lack of data sharing",
+    "Instances where timely notification of changes doesn't occur",
+    "Errors on the schedule and correction time",
+    "The speed of appeals and financial impact of rate reductions"
+  ],
+  "funding_context": {
+    "rates_retention": "Can keep up to 50% of business rate charges collected",
+    "impact": "Changes to rateable values directly affect LA funding",
+    "mixed_results": "Some LAs have bought into rates retention more than others, particularly where there is more domestic than non-domestic property"
+  },
+  "voice_and_tone": "Speaks as a public servant focused on efficient administration and service delivery. Professional but pragmatic. Values collaboration and data sharing. Understands both the VOA's constraints and their own funding pressures. Can be frustrated by bureaucratic barriers to what should be straightforward cooperation. Uses local government terminology naturally."
+}
