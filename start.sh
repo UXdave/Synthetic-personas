@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec /usr/bin/python3 -m gunicorn app:app --bind "0.0.0.0:$PORT" --workers 2 --timeout 120
+exec /opt/render/project/venv/bin/gunicorn app:app --bind "0.0.0.0:$PORT" --workers 2 --timeout 120
