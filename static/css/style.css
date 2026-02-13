@@ -485,7 +485,7 @@ a {
 .chat-page {
     flex: 1;
     display: flex;
-    height: calc(100vh - 64px);
+    min-height: 0;
     overflow: hidden;
 }
 
@@ -636,6 +636,8 @@ a {
     display: flex;
     flex-direction: column;
     min-width: 0;
+    min-height: 0;
+    overflow: hidden;
     background: var(--gray-50);
 }
 
