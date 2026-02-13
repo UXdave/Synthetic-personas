@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
-# Create a venv using the system python3 (which is available at runtime)
-/usr/bin/python3 -m venv /opt/render/project/venv
-# Install dependencies into the venv
+# Create venv without pip (ensurepip not available on Render)
+/usr/bin/python3 -m venv --without-pip /opt/render/project/venv
+# Bootstrap pip into the venv
+curl -sS https://bootstrap.pypa.io/get-pip.py | /opt/render/project/venv/bin/python3
+# Install dependencies
 /opt/render/project/venv/bin/pip install -r requirements.txt
