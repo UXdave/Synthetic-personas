@@ -981,6 +981,30 @@ a {
     }
 }
 
+/* System / error messages */
+.message-system .message-avatar {
+    background: #dc3545;
+    color: #fff;
+    font-weight: 700;
+}
+
+.message-system .message-bubble {
+    background: #fff3f3;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+}
+
+.chat-status-banner {
+    background: #fff3cd;
+    border: 1px solid #ffecb5;
+    color: #664d03;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
 /* Hide footer on chat page */
 body.page-chat .footer {
     display: none;

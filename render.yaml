@@ -12,7 +12,7 @@ services:
       - key: SITE_PASSWORD
         sync: false
       - key: AI_PROVIDER
-        value: openai
+        value: anthropic
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_MODEL

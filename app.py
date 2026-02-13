@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 import secrets
 from pathlib import Path
 from functools import wraps
@@ -12,13 +13,22 @@ from flask import (
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
 
+# Logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Configuration
 SITE_PASSWORD = os.environ.get("SITE_PASSWORD", "transform2024")
-AI_PROVIDER = os.environ.get("AI_PROVIDER", "openai")  # "openai" or "anthropic"
+AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic")  # "anthropic" or "openai"
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o")
 ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514")
+
+# Startup diagnostics
+logger.info("AI_PROVIDER=%s", AI_PROVIDER)
+logger.info("ANTHROPIC_API_KEY configured: %s", bool(ANTHROPIC_API_KEY))
+logger.info("OPENAI_API_KEY configured: %s", bool(OPENAI_API_KEY))
 
 # Load persona data
 PERSONA_DIR = Path(__file__).parent / "persona_data"
@@ -90,6 +100,9 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not session.get("authenticated"):
+            # Return JSON 401 for AJAX/API requests instead of a redirect
+            if request.is_json or request.headers.get("Content-Type") == "application/json":
+                return jsonify({"error": "Session expired. Please refresh the page and log in again."}), 401
             return redirect(url_for("login"))
         return f(*args, **kwargs)
     return decorated_function
@@ -132,11 +145,17 @@ def chat(persona_id):
 @login_required
 def api_chat():
     data = request.json
+    if not data:
+        return jsonify({"error": "Invalid request body."}), 400
+
     persona_id = data.get("persona_id")
     messages = data.get("messages", [])
 
-    if persona_id not in PERSONAS:
-        return jsonify({"error": "Unknown persona"}), 400
+    if not persona_id or persona_id not in PERSONAS:
+        return jsonify({"error": "Unknown persona."}), 400
+
+    if not messages:
+        return jsonify({"error": "No messages provided."}), 400
 
     persona = PERSONAS[persona_id]
     dossier = json.dumps(persona, indent=2)
@@ -152,13 +171,22 @@ def api_chat():
         if OPENAI_API_KEY:
             provider = "openai"
 
+    # Validate that the selected provider has an API key
+    if provider == "anthropic" and not ANTHROPIC_API_KEY:
+        logger.error("Anthropic API key is not configured")
+        return jsonify({"error": "The Claude API key is not configured. Please set ANTHROPIC_API_KEY in the environment."}), 503
+    if provider == "openai" and not OPENAI_API_KEY:
+        logger.error("OpenAI API key is not configured")
+        return jsonify({"error": "The OpenAI API key is not configured. Please set OPENAI_API_KEY in the environment."}), 503
+
     try:
         if provider == "anthropic":
             return _chat_anthropic(system_prompt, messages)
         else:
             return _chat_openai(system_prompt, messages)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logger.exception("Chat API error (provider=%s)", provider)
+        return jsonify({"error": f"AI service error: {e}"}), 500
 
 
 def _chat_openai(system_prompt, messages):
@@ -205,6 +233,27 @@ def _chat_anthropic(system_prompt, messages):
 
     reply = response.content[0].text
     return jsonify({"reply": reply})
+
+
+@app.route("/api/status")
+@login_required
+def api_status():
+    """Check whether the AI backend is configured and ready."""
+    provider = AI_PROVIDER.lower()
+    if provider == "anthropic" and not ANTHROPIC_API_KEY:
+        if OPENAI_API_KEY:
+            provider = "openai"
+    elif provider == "openai" and not OPENAI_API_KEY:
+        if ANTHROPIC_API_KEY:
+            provider = "anthropic"
+
+    has_key = (provider == "anthropic" and bool(ANTHROPIC_API_KEY)) or \
+              (provider == "openai" and bool(OPENAI_API_KEY))
+
+    return jsonify({
+        "ready": has_key,
+        "provider": provider,
+    })
 
 
 if __name__ == "__main__":

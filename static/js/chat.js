@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let conversationHistory = [];
     let isLoading = false;
 
+    // Check API readiness on page load
+    checkApiStatus();
+
     // Sidebar toggle (mobile)
     if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener("click", () => {
@@ -79,20 +82,55 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             });
 
+            // Handle session expiry - redirect to login
+            if (response.status === 401) {
+                addMessage("system", "Your session has expired. Redirecting to login...");
+                conversationHistory.pop(); // Remove the failed user message
+                setTimeout(() => { window.location.href = "/login"; }, 2000);
+                setLoading(false);
+                return;
+            }
+
             const data = await response.json();
 
             if (data.error) {
-                addMessage("assistant", "I'm sorry, there was an error: " + data.error);
+                addMessage("system", data.error);
+                conversationHistory.pop(); // Remove the failed user message from history
             } else {
                 addMessage("assistant", data.reply);
                 conversationHistory.push({ role: "assistant", content: data.reply });
             }
         } catch (err) {
-            addMessage("assistant", "Connection error. Please check your network and try again.");
+            addMessage("system", "Connection error. Please check your network and try again.");
+            conversationHistory.pop(); // Remove the failed user message
         }
 
         setLoading(false);
     });
+
+    async function checkApiStatus() {
+        try {
+            const response = await fetch("/api/status", {
+                headers: { "Content-Type": "application/json" }
+            });
+            if (response.status === 401) return; // Session issue, login redirect will handle
+            const data = await response.json();
+            if (!data.ready) {
+                addStatusBanner("AI service is not configured. An API key must be set in the server environment for chat to work.");
+            }
+        } catch (err) {
+            // Silently ignore - errors will surface when user tries to chat
+        }
+    }
+
+    function addStatusBanner(message) {
+        const existing = chatMessages.querySelector(".chat-status-banner");
+        if (existing) existing.remove();
+        const banner = document.createElement("div");
+        banner.className = "chat-status-banner";
+        banner.textContent = message;
+        chatMessages.insertBefore(banner, chatMessages.firstChild);
+    }
 
     function addMessage(role, content) {
         const messageDiv = document.createElement("div");
@@ -103,6 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (role === "user") {
             avatarDiv.textContent = "You";
+        } else if (role === "system") {
+            avatarDiv.textContent = "!";
         } else {
             const avatarInitials = document.querySelector(".sidebar-persona .persona-avatar span");
             avatarDiv.textContent = avatarInitials ? avatarInitials.textContent : "AI";
