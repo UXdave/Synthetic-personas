@@ -73,14 +73,20 @@ document.addEventListener("DOMContentLoaded", () => {
         setLoading(true);
 
         try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 120000);
+
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     persona_id: personaId,
                     messages: conversationHistory
-                })
+                }),
+                signal: controller.signal
             });
+
+            clearTimeout(timeoutId);
 
             // Handle session expiry - redirect to login
             if (response.status === 401) {
@@ -91,7 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const data = await response.json();
+            // Try to parse JSON; handle non-JSON responses (e.g. proxy 502/503 HTML pages)
+            let data;
+            try {
+                data = await response.json();
+            } catch (parseErr) {
+                addMessage("system", `Server error (${response.status}). The AI service may be temporarily unavailable — please try again.`);
+                conversationHistory.pop();
+                setLoading(false);
+                return;
+            }
 
             if (data.error) {
                 addMessage("system", data.error);
@@ -101,7 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 conversationHistory.push({ role: "assistant", content: data.reply });
             }
         } catch (err) {
-            addMessage("system", "Connection error. Please check your network and try again.");
+            if (err.name === "AbortError") {
+                addMessage("system", "Request timed out. The AI service took too long to respond — please try again.");
+            } else {
+                addMessage("system", "Connection error. Please check your network and try again.");
+            }
             conversationHistory.pop(); // Remove the failed user message
         }
 
