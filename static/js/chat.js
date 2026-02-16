@@ -11,6 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
     let conversationHistory = [];
     let isLoading = false;
 
+    // --- Mobile virtual-keyboard fix ---
+    // Updates a CSS variable to the real visible height so the layout
+    // stays correct when the on-screen keyboard opens / closes.
+    function updateAppHeight() {
+        const h = window.visualViewport
+            ? window.visualViewport.height
+            : window.innerHeight;
+        document.documentElement.style.setProperty("--app-height", h + "px");
+    }
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", updateAppHeight);
+    }
+    window.addEventListener("resize", updateAppHeight);
+    updateAppHeight();
+
+    // When the textarea receives focus on mobile, make sure it's visible
+    chatInput.addEventListener("focus", () => {
+        setTimeout(() => {
+            chatInput.scrollIntoView({ block: "end", behavior: "smooth" });
+        }, 300); // slight delay to let the keyboard finish opening
+    });
+
     // Check API readiness on page load
     checkApiStatus();
 
