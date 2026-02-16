@@ -192,7 +192,7 @@ def api_chat():
 def _chat_openai(system_prompt, messages):
     from openai import OpenAI
 
-    client = OpenAI(api_key=OPENAI_API_KEY)
+    client = OpenAI(api_key=OPENAI_API_KEY, timeout=90.0)
 
     api_messages = [{"role": "system", "content": system_prompt}]
     for msg in messages:
@@ -215,7 +215,10 @@ def _chat_openai(system_prompt, messages):
 def _chat_anthropic(system_prompt, messages):
     import anthropic
 
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    client = anthropic.Anthropic(
+        api_key=ANTHROPIC_API_KEY,
+        timeout=90.0,
+    )
 
     api_messages = []
     for msg in messages:
@@ -224,12 +227,31 @@ def _chat_anthropic(system_prompt, messages):
             "content": msg["content"]
         })
 
-    response = client.messages.create(
-        model=ANTHROPIC_MODEL,
-        max_tokens=2048,
-        system=system_prompt,
-        messages=api_messages,
-    )
+    try:
+        response = client.messages.create(
+            model=ANTHROPIC_MODEL,
+            max_tokens=2048,
+            system=system_prompt,
+            messages=api_messages,
+        )
+    except anthropic.AuthenticationError:
+        logger.error("Anthropic authentication failed — API key is invalid")
+        return jsonify({"error": "The Anthropic API key is invalid. Please check ANTHROPIC_API_KEY in the server environment."}), 401
+    except anthropic.RateLimitError:
+        logger.warning("Anthropic rate limit hit")
+        return jsonify({"error": "Rate limit exceeded. Please wait a moment and try again."}), 429
+    except anthropic.APIConnectionError as e:
+        logger.error("Cannot reach Anthropic API: %s", e)
+        return jsonify({"error": "Could not connect to the Claude API. Please try again later."}), 502
+    except anthropic.APITimeoutError:
+        logger.error("Anthropic API request timed out")
+        return jsonify({"error": "The Claude API request timed out. Please try again."}), 504
+    except anthropic.BadRequestError as e:
+        logger.error("Anthropic bad request (model=%s): %s", ANTHROPIC_MODEL, e)
+        return jsonify({"error": f"Claude API rejected the request: {e}"}), 400
+    except anthropic.APIStatusError as e:
+        logger.error("Anthropic API error %d: %s", e.status_code, e.message)
+        return jsonify({"error": f"Claude API error ({e.status_code}): {e.message}"}), 502
 
     reply = response.content[0].text
     return jsonify({"reply": reply})
@@ -254,6 +276,47 @@ def api_status():
         "ready": has_key,
         "provider": provider,
     })
+
+
+@app.route("/api/test")
+@login_required
+def api_test():
+    """Test the AI API connection with a minimal request."""
+    provider = AI_PROVIDER.lower()
+    if provider == "anthropic" and not ANTHROPIC_API_KEY:
+        if OPENAI_API_KEY:
+            provider = "openai"
+    elif provider == "openai" and not OPENAI_API_KEY:
+        if ANTHROPIC_API_KEY:
+            provider = "anthropic"
+
+    if provider == "anthropic" and not ANTHROPIC_API_KEY:
+        return jsonify({"ok": False, "error": "ANTHROPIC_API_KEY is not set in the environment."}), 503
+    if provider == "openai" and not OPENAI_API_KEY:
+        return jsonify({"ok": False, "error": "OPENAI_API_KEY is not set in the environment."}), 503
+
+    try:
+        if provider == "anthropic":
+            import anthropic
+            client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY, timeout=15.0)
+            response = client.messages.create(
+                model=ANTHROPIC_MODEL,
+                max_tokens=10,
+                messages=[{"role": "user", "content": "Say OK"}],
+            )
+            return jsonify({"ok": True, "provider": "anthropic", "model": ANTHROPIC_MODEL, "reply": response.content[0].text})
+        else:
+            from openai import OpenAI
+            client = OpenAI(api_key=OPENAI_API_KEY, timeout=15.0)
+            response = client.chat.completions.create(
+                model=OPENAI_MODEL,
+                messages=[{"role": "user", "content": "Say OK"}],
+                max_tokens=10,
+            )
+            return jsonify({"ok": True, "provider": "openai", "model": OPENAI_MODEL, "reply": response.choices[0].message.content})
+    except Exception as e:
+        logger.exception("API test failed (provider=%s)", provider)
+        return jsonify({"ok": False, "provider": provider, "error": f"{type(e).__name__}: {e}"}), 500
 
 
 if __name__ == "__main__":
