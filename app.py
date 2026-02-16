@@ -1,5 +1,6 @@
 import os
 import json
+import hashlib
 import logging
 import secrets
 from pathlib import Path
@@ -11,7 +12,13 @@ from flask import (
 )
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
+# SECRET_KEY must be consistent across workers and restarts.
+# Best practice: set SECRET_KEY env var on Render. Fallback derives a
+# stable key from the login password so sessions survive restarts.
+_fallback_key = hashlib.sha256(
+    ("persona-sim-" + os.environ.get("LOGIN_PASSWORD", "changeme")).encode()
+).hexdigest()
+app.secret_key = os.environ.get("SECRET_KEY", _fallback_key)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 app.config["CACHE_BUST"] = secrets.token_hex(4)
 
