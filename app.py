@@ -3,6 +3,7 @@ import json
 import hashlib
 import logging
 import secrets
+from datetime import timedelta
 from pathlib import Path
 from functools import wraps
 
@@ -10,8 +11,14 @@ from flask import (
     Flask, render_template, request, jsonify, session,
     redirect, url_for, flash, Response
 )
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
+
+# Render (and most PaaS) run behind a reverse proxy — ProxyFix lets
+# Flask read X-Forwarded-* headers so it knows the real scheme/host.
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
+
 # SECRET_KEY must be consistent across workers and restarts.
 # Best practice: set SECRET_KEY env var on Render. Fallback derives a
 # stable key from the login password so sessions survive restarts.
@@ -19,6 +26,13 @@ _fallback_key = hashlib.sha256(
     ("persona-sim-" + os.environ.get("LOGIN_PASSWORD", "changeme")).encode()
 ).hexdigest()
 app.secret_key = os.environ.get("SECRET_KEY", _fallback_key)
+
+# Session cookie settings
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(hours=24)
+
+# Static asset settings
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 app.config["CACHE_BUST"] = secrets.token_hex(4)
 
@@ -122,6 +136,7 @@ def login():
     if request.method == "POST":
         password = request.form.get("password", "")
         if password == SITE_PASSWORD:
+            session.permanent = True
             session["authenticated"] = True
             return redirect(url_for("home"))
         else:
