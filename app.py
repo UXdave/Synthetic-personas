@@ -21,9 +21,9 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 # SECRET_KEY must be consistent across workers and restarts.
 # Best practice: set SECRET_KEY env var on Render. Fallback derives a
-# stable key from the login password so sessions survive restarts.
+# stable key from the site password so sessions survive restarts.
 _fallback_key = hashlib.sha256(
-    ("persona-sim-" + os.environ.get("LOGIN_PASSWORD", "changeme")).encode()
+    ("persona-sim-" + os.environ.get("SITE_PASSWORD", "transform2024")).encode()
 ).hexdigest()
 app.secret_key = os.environ.get("SECRET_KEY", _fallback_key)
 

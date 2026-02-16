@@ -10,6 +10,10 @@ venv/
 # Environment
 .env
 
+# Render build artefacts
+vendor/
+.python_path
+
 # OS
 .DS_Store
 Thumbs.db

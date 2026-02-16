@@ -97,12 +97,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Validation errors come back as JSON
+            // Validation / auth errors come back as JSON
             const contentType = response.headers.get("content-type") || "";
             if (contentType.includes("application/json")) {
                 const data = await response.json();
                 setLoading(false);
                 addMessage("system", data.error || "Unknown error from server.");
+                conversationHistory.pop();
+                return;
+            }
+
+            // Non-2xx that isn't JSON (e.g. Render 502 HTML page)
+            if (!response.ok) {
+                setLoading(false);
+                addMessage("system", `Server error (${response.status}). Please try again in a moment.`);
                 conversationHistory.pop();
                 return;
             }
@@ -147,6 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     // parsed.done — stream finished
                 }
                 if (hadError) break;
+            }
+
+            // Remove empty bubble if stream produced nothing
+            if (!fullReply && !hadError) {
+                bubbleEl.closest(".message").remove();
+                addMessage("system", "No response received. Please try again.");
             }
 
             if (hadError || !fullReply) {
