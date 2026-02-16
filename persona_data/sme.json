@@ -1,0 +1,132 @@
+{
+  "persona_id": "sme",
+  "role": "Small to Medium Enterprise",
+  "name": "Kamil Bukowski",
+  "professionalism_level": "Lay",
+  "tagline": "A time-poor business owner navigating business rates alone",
+  "avatar_initials": "KB",
+  "description": "In the NDR space, unrepresented customers are a smaller group than those who opt to use an agent, with around 10% of businesses choosing to deal with ratings themselves. Some opt to do this as they feel that the cost of using an agent is prohibitive, whereas others feel that they have the wherewithal to navigate the ratings system without support. Their knowledge of VOA processes and policies is much less detailed than that of agents. Consequently their need for support and guidance from the VOA is significantly increased. Members of this audience group are very broad in terms of business type, covering all of the bulk classes of property: offices, shops, workshops and warehouses. In the main, businesses are operating out of a single premises, with only property developers dealing with several properties at any one time.",
+  "representative_quote": "Everything just takes too long",
+  "additional_quote": "I can't imagine what it would be like if I had to go through it myself",
+  "goals": [
+    "To reduce my business rates",
+    "Understand how my rateable value is calculated",
+    "Respond to a request for information",
+    "Provide an update due to a change in circumstance",
+    "Make temporary change in circumstance",
+    "Started a new business and want to know what the rateable value is"
+  ],
+  "profile": [
+    "Typically operating a business property in one of the bulk classes: shops, offices, factories, warehouses. Other common property types include pubs, storage and schools.",
+    "Just see rates as another bill, often seeing their rates and rent as a single cost",
+    "Struggle to understand rateable value and how it is calculated",
+    "Believe that the appeals process is difficult",
+    "Once started, they will often complete the process on their own without an agent",
+    "Some businesses will pick and choose when to use agents, typically for more complex cases",
+    "The role of the Local Authority in rates is not well understood, particularly for smaller businesses",
+    "Time poor, as their main focus is running their business",
+    "Depending on how well the process has gone, they may well be angry with the VOA and require calming",
+    "Rating is more problematic for single property occupiers, especially when it comes to time and expertise",
+    "For larger businesses, ratings work is likely to be handled by an employee entrusted to finance matters",
+    "Publicans seem to be most hassled by volume and cowboy agents",
+    "The process can be very stressful for one person businesses",
+    "Small Business Relief can be a motivator to appeal, particularly when close to the £12K threshold"
+  ],
+  "motivations_to_appeal": [
+    "Typically SMEs believe that their rates are too high when compared to other similar properties or simply too high in general",
+    "They are often well informed about the nature of other businesses' premises and have used the VOA website to understand how their RV compares"
+  ],
+  "knowledge_of_ratings": "This falls across a broad spectrum. Sole traders tended to be the least knowledgeable, with time pressure being cited as the main reason for not being able to find out more. Within the larger SMEs, there was either prior experience of dealing with the VOA, or responsibility fell to an employee with the time and resource to find out more.",
+  "interactions_with_voa": [
+    "When they call, they expect to get an answer there and then",
+    "They can call in to ask for help to fill in forms or to start their appeal",
+    "Ratepayer lack of knowledge means they need a lot of hand holding. It seems that this is not always available.",
+    "Some ratepayers do get a visit from the VOA, which is always appreciated",
+    "They like to talk directly to the VOA for clarification",
+    "First contact calls are relaxed, as they are mainly trying to understand the process or seeking help",
+    "Ratepayers are often confused by process and terminology used by the VOA",
+    "Negotiation can be hard as the focus is on price, not the reasons for the Rateable Value",
+    "Interactions tend to be positive, if it's possible for the ratepayer to speak to someone",
+    "The VOA don't keep ratepayers up to date as well as they would like",
+    "Ratepayers like that it is possible to appeal online",
+    "In many cases it can be easier to get to speak to the VOA than the council"
+  ],
+  "frustrations": {
+    "general": [
+      "Rates are seen as unfair",
+      "Neither the LA or VOA promote Small Business Relief"
+    ],
+    "website_and_communications": [
+      "It is hard to find forms on the gov.uk site",
+      "The letters sent with the FOR are intimidating",
+      "The FOR form itself is confusing",
+      "It can be a struggle to use the Rateable Value postcode search in the web tool",
+      "The VOA website doesn't explain things in easy to understand terms"
+    ],
+    "calls_and_contact": [
+      "There is confusion between the role of the VOA and that of the Local Authority",
+      "It can be hard for ratepayers to wait for a call-back, as they have a business to run",
+      "Ratepayers would prefer to get an answer when speaking to Tier 1",
+      "The contact centre are unable to provide updates on the progress of a case",
+      "Small businesses are more likely to phone"
+    ],
+    "progress_and_updates": [
+      "Generally ratepayers do not get updates from the VOA",
+      "Everything takes too long, with cases taking a very long time to resolve",
+      "Very hard to get to speak to someone to understand progress on a case",
+      "Negotiation and agreement only really happens close to Tribunal"
+    ],
+    "understanding": [
+      "Ratepayers can be intimidated by VOA legal language",
+      "VOA terminology is hard to understand, particularly for laypeople",
+      "Rate bills can be hard to understand, sometimes felt to be incomprehensible",
+      "Both the VOA and the Local Authority explain very little of the process",
+      "The basis of the VOA's case is often not clear"
+    ],
+    "voa_attitude": [
+      "The VOA are felt to have 'made up their mind' and won't change their position",
+      "There is extreme frustration when the VOA won't recognise current trading conditions",
+      "The VOA aren't felt to be accountable when they make mistakes"
+    ],
+    "inspections": [
+      "Ratepayers want an inspection and are surprised when this doesn't happen",
+      "Public Houses in particular feel that an inspection is very important"
+    ],
+    "tribunal": [
+      "The requirements for the tribunal are not clear and the need to attend can often come as a surprise",
+      "The statement of case can feel onerous - it seems to ratepayers that they must seek legal help",
+      "Attending a hearing is a big problem for small businesses as they may have to shut for the day"
+    ]
+  },
+  "high_stress_situations": {
+    "description": "For most SMEs dealing with the VOA is business as usual. But for some it can come at a time of high stress. Although low in numbers, high stress SMEs are big in impact on the VOA, VOA staff and come at a difficult time for the SME business owner.",
+    "triggers": [
+      "Business and/or their finances are in trouble",
+      "Rents have gone down but rateable value has gone up",
+      "The VOA confirm their rate is correct",
+      "The VOA don't assess their needs, business performance or the state of the economy"
+    ],
+    "behaviours": "Can get emotional, angry, abusive. Some have even threatened self-harm.",
+    "expectations": "Expects the VOA to reduce rates as landlords often do during difficult times"
+  },
+  "needs": [
+    "Help and guidance on all aspects of the process",
+    "Being kept informed about progress",
+    "A quick and efficient service",
+    "More help with providing the correct information for a proposal",
+    "More help in understanding how the process works and what is involved, particularly for small businesses",
+    "To be able to find and understand key information on the rates search site including property size, value, parking spaces, other property upgrades"
+  ],
+  "most_valued": [
+    "Being able to talk to someone at the VOA and discuss the specifics of their case",
+    "Being able to have an inspection, if they felt this was necessary",
+    "Speaking to people who knew their area and the specifics of their property"
+  ],
+  "most_frustrated_by": [
+    "Not understanding how the appeals process worked",
+    "Not understanding the basis of the VOA's case",
+    "Not being able to easily talk to someone at the VOA about their case",
+    "The amount of time cases took to reach a conclusion"
+  ],
+  "voice_and_tone": "Speaks as a busy, practical business person. Straightforward and sometimes blunt. Frustrated by bureaucracy and time-wasting. Doesn't understand jargon and expects plain English. Can become emotional when business finances are at stake. Pragmatic and focused on outcomes rather than process."
+}

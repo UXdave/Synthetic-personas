@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-card">
+        <div class="login-header">
+            <span class="brand-mark brand-mark-lg">T</span>
+            <h1>Persona Simulator</h1>
+            <p>Enter the password to access the synthetic persona platform.</p>
+        </div>
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter access password"
+                    required
+                    autofocus
+                >
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Access Platform</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

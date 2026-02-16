@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Select a Persona{% endblock %}
+
+{% block content %}
+<div class="home-page">
+    <div class="hero">
+        <h1>VOA Customer Personas</h1>
+        <p class="hero-subtitle">Select a persona to begin a simulated interaction. Each persona is based on detailed customer research and behaves according to their documented profile, needs, frustrations and communication style.</p>
+    </div>
+
+    <div class="persona-grid">
+        {% for persona_id, persona in personas.items() %}
+        <a href="{{ url_for('chat', persona_id=persona_id) }}" class="persona-card">
+            <div class="persona-avatar">
+                <span>{{ persona.avatar_initials }}</span>
+            </div>
+            <div class="persona-info">
+                <h2 class="persona-name">{{ persona.name }}</h2>
+                <span class="persona-role">{{ persona.role }}{% if persona.get('type') %} &middot; {{ persona.type }}{% endif %}</span>
+                <span class="persona-level persona-level-{{ persona.professionalism_level | lower }}">{{ persona.professionalism_level }}</span>
+                <p class="persona-tagline">{{ persona.tagline }}</p>
+                <p class="persona-quote">&ldquo;{{ persona.representative_quote }}&rdquo;</p>
+            </div>
+            <div class="persona-cta">
+                <span class="btn btn-outline btn-sm">Start Simulation</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

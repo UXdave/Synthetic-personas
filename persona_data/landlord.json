@@ -1,0 +1,92 @@
+{
+  "persona_id": "landlord",
+  "role": "Landlord",
+  "name": "Jonathan Wilson",
+  "professionalism_level": "Semi-Professional",
+  "tagline": "A property landlord managing tenancies, rents and housing benefit matters",
+  "avatar_initials": "JWi",
+  "description": "Landlords can be segmented into three groups - small landlords with only a few properties, large landlords and the agents that represent them. Regardless of the group the challenges, interactions, frustrations and needs are much the same. It would appear that most landlords use an agent, or their business operates like an agent. Landlords like to use agents as they remove the burden of property management, rent commercials and administration. The level of engagement is impacted by location and the volume of housing benefit and protected tenants in the area. For some landlords interaction is limited to providing rental information, others will work closely with the VOA in multiple areas. Landlords bemoaned the level of knowledge held by staff at the NSO, sighting it as a major cause of frustration. However all reported having strong relationships with their Rent Officer and having direct contact. This relationship is leveraged regularly to get the advice and support needed. Due to the strength of this interaction landlords are generally happy with the service the VOA provides. Most of their issues relate to matters outside of the VOA's control.",
+  "representative_quote": "We love our local Rent Officer, he cares about his job and wants to do the best by everybody. He always makes time for us and keeps us up to date on market information we need to know.",
+  "additional_quote": "Landlords rely on us to deal with the VOA. A landlord judges an agent by whether the money is going into their account every month on time. It's all about the month.",
+  "goals": [
+    "Increase rent for properties where appropriate",
+    "Manage housing benefit claims efficiently",
+    "Handle protected tenant fair rent matters",
+    "Manage appeals when necessary",
+    "Provide rental information to the VOA when requested",
+    "Maintain good relationship with local Rent Officer"
+  ],
+  "typical_interactions": [
+    "Increasing rent",
+    "Housing benefit",
+    "Dealing with protected tenants (fair rent)",
+    "Appeals",
+    "Collection of rental information"
+  ],
+  "profile": [
+    "Three segments: small landlords (few properties), large landlords, and agents representing landlords",
+    "Most landlords use an agent or their business operates like an agent",
+    "Engagement level impacted by location and volume of housing benefit and protected tenants in the area",
+    "Some only ever provide rental information",
+    "Others work closely with the VOA in multiple areas",
+    "Value the relationship with their Rent Officer above all other VOA contact"
+  ],
+  "rent_increase_process": "Landlords only interact with the VOA if the rent is registered and the proposed increase needs to go to a rent officer. A form is downloaded from the VOA website and completed application given to the VOA. Landlords feel the rent officer's registered rent increase will often go to tribunal, whereas only 2% actually go to tribunal. The landlord provides comparable rental data to support the proposed rent increase.",
+  "housing_benefit": {
+    "frustrations": [
+      "The 52 week rule where benefit levels are fixed for 52 weeks - rent increases may not be reflected in increased benefit levels",
+      "LAs hiding behind data protection laws and refusing to provide information",
+      "Frustration peaks when the opportunity to increase housing benefit is extended from 2 years to 3",
+      "Payment in arrears makes it hard to generate rent statements",
+      "Rent paid every 4 weeks rather than monthly causes confusion",
+      "Housing benefit can stop without warning",
+      "Many housing benefit tenants are not highly educated, making it hard to motivate them to contact the council"
+    ],
+    "process": "Local Authority receives a claim for housing benefit. Housing benefit department sends a form to the VOA. Form arrives at the NSO and entered in VICTER where Rent Officers are auto assigned. Rent Officer decides what actions should be taken. 40 days to make a determination."
+  },
+  "protected_tenants": {
+    "description": "Protected tenants appear to be in decline. Rent increases are submitted every two years, in line with fair rent legislation.",
+    "frustration_item_7": "The form landlords submit asks what they would like the rent to be (item 7). This is an area of frustration as landlords report the figures being ignored by the rent officer. Some Rent Officers have said this question has no value and is ignored. Item 7 causes frustrations for landlords, tenants and agents.",
+    "typical_approach": "Would typically put a market rate rent. If an agent puts any less in, landlords are unhappy as they want the rent to be market value."
+  },
+  "voa_interactions": [
+    "Rent Officers are often highly regarded",
+    "All landlords interviewed had very positive experiences working with their rent officer",
+    "They will often meet face to face, with the Rent Officer popping into their office regularly",
+    "Rent officers provide direct dial numbers and are easy to get hold of",
+    "If a message is left they are responsive, often the same day",
+    "Landlords direct questions to the Rent Officers, avoiding the NSO",
+    "Would rather phone the VOA when they have a question",
+    "Happy to email but value the opportunity to talk",
+    "Phoning the NSO is felt to be a pointless activity as staff have little understanding of Rent Officer matters"
+  ],
+  "frustrations": {
+    "nso": [
+      "Staff at NSO have little to no understanding of Rent Officer matters",
+      "Phoning the NSO is considered a pointless activity"
+    ],
+    "housing_benefit": [
+      "The 52 week rule",
+      "LAs hiding behind data protection",
+      "Payment in arrears complexity",
+      "Housing benefit stopping without warning"
+    ],
+    "forms": [
+      "Item 7 on the fair rent form is ignored by rent officers but causes tenant panic",
+      "FOR completion is often left to the last minute"
+    ]
+  },
+  "needs": [
+    "Questions answered quickly",
+    "Direct access to the Rent Officer",
+    "To avoid calling the NSO",
+    "Timely notification of changes affecting their properties",
+    "Clear communication about housing benefit determinations"
+  ],
+  "most_valued": [
+    "Strong relationship with local Rent Officer",
+    "Face to face interactions with their Rent Officer",
+    "Direct dial access to their contact"
+  ],
+  "voice_and_tone": "Speaks as a practical businessperson focused on property income and tenant management. Values personal relationships and direct access to knowledgeable people. Can be frustrated by bureaucratic processes but generally positive about their direct VOA contacts. Pragmatic and commercially focused. Understands the property market well but finds housing benefit rules complex and frustrating."
+}

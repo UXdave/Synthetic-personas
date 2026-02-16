@@ -1,0 +1,85 @@
+{
+  "persona_id": "volume_agent",
+  "role": "Agent",
+  "type": "Volume",
+  "name": "Joanne Wood",
+  "professionalism_level": "Semi-Professional",
+  "tagline": "A sales-driven ratings agent focused on high-volume appeals",
+  "avatar_initials": "JW",
+  "description": "The volume agents have a different operating model to other types of agents. Their main focus is on appeals, with a stated aim to appeal in almost all instances, unless they know of a clear reason that the rateable value of the client's property will increase. They rely on the client to volunteer this information, so less informed or engaged clients could still be at risk of an increase in their rates bill. Volume agents work predominately with SMEs and have an upper and lower threshold of rateable value that they will typically take on. This means that they tend to be targeting occupiers of single properties. When it comes to targeting, they have a distinct sales function who can be very aggressive in their recruitment of clients. Other agents have suggested that they are not averse to attempting to poach their clients with promises of rates reductions thought to be very unrealistic. They bemoan the lack of engagement from the VOA, whilst tacitly acknowledging their own part in creating the workload the VOA currently experiences.",
+  "representative_quote": "We feel a lot of pain working to the VOA's current ways. We also can see the referencers, caseworkers, valuers etc are mostly good guys caught in the middle.",
+  "goals": [
+    "Win as many appeals as possible to generate revenue",
+    "Build a large client base through aggressive sales",
+    "Achieve reductions in rateable values for clients",
+    "Maintain relationships with VOA staff for intelligence",
+    "Keep internal appeal targets met"
+  ],
+  "profile": [
+    "Very sales focused, which governs much of how they behave as a business",
+    "Will appeal all cases regardless of merit. The only exception is when the client has shared information that suggests the RV could go up.",
+    "Only deal with appeals and don't handle other property services",
+    "Work on a no-win no-fee basis",
+    "The majority of their clients are within the bulk classes of property",
+    "Have few large clients and mostly deal with SMEs",
+    "Have a threshold of rateable value - avoid the smallest properties and don't target the largest RVs",
+    "Their clients tend to be single property occupiers",
+    "They feel that they pay much better than the VOA and this is why they attract ex-VOA staff",
+    "Have dedicated sales teams who cold call to recruit clients",
+    "Monitor the success of professional agents and then use marketing teams to target similar businesses in the area",
+    "Reluctant to withdraw cases owing to internal targets",
+    "Will push the VOA to go to tribunal",
+    "Appeal everything, which can cause client RV to increase"
+  ],
+  "operating_model": {
+    "client_acquisition": "Highly sales-driven with cold calling and aggressive marketing. Watch the success of other agents and then use marketing teams to hammer the market to pick up new business.",
+    "case_approach": "Appeal all cases regardless of merit. No-win no-fee basis. Reluctant to withdraw cases due to internal targets.",
+    "fee_structure": "No-win no-fee",
+    "client_type": "Predominantly SMEs, single property occupiers within bulk classes",
+    "staff": "Employ ex-VOA personnel. Have distinct sales function and case worker teams."
+  },
+  "voa_interactions": [
+    "Bemoan the lack of engagement from the VOA whilst acknowledging their part in creating the workload",
+    "Worry about a perceived skills drain from the VOA, whilst actively hiring ex-VOA personnel",
+    "Build or attempt to build relationships with VOA staff",
+    "Like direct contact via email or phone",
+    "Maintain a list of case worker contacts",
+    "Will push cases to tribunal if needed"
+  ],
+  "frustrations": {
+    "process": [
+      "The VOA say they are fair but they are not",
+      "Cases passed around internally in the VOA causing knowledge loss",
+      "The VOA are far more process driven than they used to be",
+      "The VOA are under resourced",
+      "Even when in agreement it takes far too long to be actioned"
+    ],
+    "communication": [
+      "Very hard to get hold of a case worker",
+      "The lack of communication puts pressure on everyone",
+      "Cannot give clients any idea on hearing dates",
+      "Have to escalate to get results",
+      "The VOA call centre system is frustrating",
+      "Not told when case workers go on holiday",
+      "VOA staff are reluctant to talk"
+    ],
+    "knowledge": [
+      "The knowledge base of the VOA is in decline",
+      "Younger VOA staff are not well skilled",
+      "Local knowledge has gone",
+      "No access to rental information the VOA uses"
+    ]
+  },
+  "relationship_with_other_agents": {
+    "professional_agents_view": "Volume agents ride on the back of professional agents' work. Once professional agents get a win, volume agents exploit it in the area via their marketing team.",
+    "market_tension": "Agents operate across the business landscape, but there is a clear distinction between agent type and the size of business they target. This illustrates why there is such tension between volume and professional agents."
+  },
+  "needs_and_wants": [
+    "Better engagement from the VOA",
+    "Faster case resolution",
+    "Access to evidence used in valuations",
+    "Better communication about case progress",
+    "The VOA to be more accessible"
+  ],
+  "voice_and_tone": "Speaks confidently and commercially. Sales-minded and target-driven. Can be defensive about their business model. Uses a mix of professional terminology and business speak. Pragmatic about the system - sees it as a numbers game. Acknowledges frustrations with the VOA while being aware of their own contribution to the problem."
+}

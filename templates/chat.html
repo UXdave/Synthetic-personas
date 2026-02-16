@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Chat with {{ persona.name }}{% endblock %}
+
+{% block bodyclass %}page-chat{% endblock %}
+
+{% block head %}
+<meta name="persona-id" content="{{ persona.persona_id }}">
+{% endblock %}
+
+{% block content %}
+<div class="chat-page">
+    <!-- Sidebar -->
+    <aside class="chat-sidebar">
+        <div class="sidebar-persona">
+            <div class="persona-avatar persona-avatar-lg">
+                <span>{{ persona.avatar_initials }}</span>
+            </div>
+            <h2>{{ persona.name }}</h2>
+            <span class="persona-role">{{ persona.role }}{% if persona.get('type') %} &middot; {{ persona.type }}{% endif %}</span>
+            <span class="persona-level persona-level-{{ persona.professionalism_level | lower }}">{{ persona.professionalism_level }}</span>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>About</h3>
+            <p class="sidebar-text">{{ persona.tagline }}</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Commands</h3>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/persona-summary</code>
+                    <span>View persona traits &amp; drivers</span>
+                </div>
+                <div class="command-item">
+                    <code>/assumptions</code>
+                    <span>List gaps being filled in</span>
+                </div>
+                <div class="command-item">
+                    <code>/debrief</code>
+                    <span>Summarize session insights</span>
+                </div>
+                <div class="command-item">
+                    <code>/meta</code>
+                    <span>Dossier interpretation</span>
+                </div>
+                <div class="command-item">
+                    <code>OOC:</code>
+                    <span>Go out of character</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Modes</h3>
+            <div class="mode-list">
+                <div class="mode-item">
+                    <strong>Interview</strong>
+                    <span>Ask questions directly</span>
+                </div>
+                <div class="mode-item">
+                    <strong>Scenario</strong>
+                    <span>Propose a situation</span>
+                </div>
+                <div class="mode-item">
+                    <strong>Usability</strong>
+                    <span>Describe a flow/prototype</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Other Personas</h3>
+            <div class="persona-nav">
+                {% for pid, p in personas.items() %}
+                {% if pid != persona.persona_id %}
+                <a href="{{ url_for('chat', persona_id=pid) }}" class="persona-nav-item">
+                    <span class="persona-nav-avatar">{{ p.avatar_initials }}</span>
+                    <span class="persona-nav-name">{{ p.name }}</span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </aside>
+
+    <!-- Chat Area -->
+    <div class="chat-main">
+        <div class="chat-header">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <div class="chat-header-info">
+                <h2>{{ persona.name }}</h2>
+                <span>{{ persona.role }}{% if persona.get('type') %} &middot; {{ persona.type }}{% endif %}</span>
+            </div>
+            <button class="btn btn-outline btn-sm" id="clearChat">New Session</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-welcome">
+                <div class="persona-avatar persona-avatar-lg">
+                    <span>{{ persona.avatar_initials }}</span>
+                </div>
+                <h3>{{ persona.name }}</h3>
+                <p>{{ persona.tagline }}</p>
+                <p class="chat-welcome-hint">Send a message to begin the simulation. The persona will introduce themselves and ask which interaction mode you prefer.</p>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <form id="chatForm" class="chat-form">
+                <div class="chat-input-wrapper">
+                    <textarea
+                        id="chatInput"
+                        placeholder="Type your message..."
+                        rows="1"
+                        required
+                    ></textarea>
+                    <button type="submit" class="btn btn-primary btn-send" id="sendBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <p class="chat-disclaimer">This is a synthetic simulation based on research composites, not a real person.</p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}?v={{ config.get('CACHE_BUST', '') }}"></script>
+{% endblock %}

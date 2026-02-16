@@ -1,0 +1,129 @@
+{
+  "persona_id": "council_tax_payer",
+  "role": "Council Tax Payer",
+  "name": "Jennifer Day",
+  "professionalism_level": "Lay",
+  "tagline": "A homeowner navigating the council tax appeals process",
+  "avatar_initials": "JD",
+  "description": "Council tax payers are by their nature extremely varied, as they can be any homeowner living within the United Kingdom (excluding Scotland). Despite the extremely broad pool from which members of this audience group can be drawn, there are many commonalities. The majority of CT customers will be unrepresented, with few realising that it was even possible to use a third party to assist in challenging their council tax banding. Before starting the process they will know very little about what is involved, who to contact, or what outcome to expect. This can present challenges for their interaction with the VOA.",
+  "representative_quote": "It was really hard to get to speak to people about my case",
+  "goals": [
+    "Contest a VOA decision I am unhappy with",
+    "Pay council tax",
+    "Understand how my council tax is calculated",
+    "Ensure my council tax banding is accurate",
+    "Reduce my council tax",
+    "Handle the split or merger of my property",
+    "New build with no CT band"
+  ],
+  "profile": [
+    "Focused on their council tax bill",
+    "A layperson and therefore lacking in knowledge about property",
+    "Often unaware that their banding may be wrong, depending on the trigger",
+    "Unaware of the VOA and their role",
+    "Will submit a proposal as they feel their band isn't right",
+    "Lack an understanding of the law, particularly in the case of properties that have been improved (CR10)",
+    "May expect the VOA to find/provide the evidence - they don't want to do this themselves"
+  ],
+  "triggers": [
+    "Received a bill and believe the band is wrong",
+    "An agent has approached them, calling to check if this is legitimate",
+    "Media driven (particularly Martin Lewis)",
+    "Being informed by the VOA that their band is wrong",
+    "Just moved into a new property that had an extension",
+    "Recently moved into a new build and want a bill",
+    "Word of mouth - news of a successful appeal can spread like wildfire",
+    "Split or merger of property",
+    "Change of purpose - commercial to domestic",
+    "Holiday lets"
+  ],
+  "motivations_to_appeal": [
+    "CT customers are prompted to appeal by a realisation that their council tax band is higher than that of their neighbours",
+    "A discussion with a neighbour reveals that their band differs",
+    "Moving into a new property where the band is higher than expected, causing them to conduct a cursory review of their neighbourhood",
+    "Using the VOA website to investigate neighbours' CT bands"
+  ],
+  "knowledge_of_appeals": "Few CT customers had any knowledge of council tax appeals before starting the process. For many, their knowledge of how the process worked did not improve over the course of their journey, with many reporting confusion as to what was supposed to happen and when.",
+  "interactions_with_voa": [
+    "First contact calls are typically relaxed",
+    "Customers like to talk directly to the VOA for clarification",
+    "Band increases due to improvements to the property by a previous owner (CR10s) are nearly always a surprise",
+    "All requests are confirmed in writing, either by email or letter",
+    "For reviews when the owner has lived in their property beyond 6 months (CR15s), there is a spike in reviews when the bills go out",
+    "If an agent is used, there is very little interaction with the VOA",
+    "People do use the VOA website to see info about other properties in their area",
+    "Most people will either call the Local Authority or the VOA first before looking at any other information"
+  ],
+  "frustrations": {
+    "general": [
+      "Not understanding the basis of the VOA's decision",
+      "The lack of communication with the VOA",
+      "The difficulty in finding property data for 1991",
+      "Lack of an inspection"
+    ],
+    "website": [
+      "It is hard to find forms on the gov.uk site"
+    ],
+    "calls": [
+      "Call backs - 'I can't sit by the phone all day waiting for a call back'",
+      "Customers want to have a reasonable conversation, but it seems to be very hard to get to talk to anyone"
+    ],
+    "process": [
+      "Customers are confused by the process and terminology",
+      "They can be intimidated by the VOA's legal language",
+      "It can be hard for customers to understand what is defined as an annexe",
+      "New builds might not have a band and so get put on an emergency band at higher cost than expected",
+      "It can be very hard for customers to find evidence to support their case",
+      "People report that the first thing they hear after submitting an appeal is an invitation to Tribunal - unexpected and frightening",
+      "Very little guidance on how the process works",
+      "The basis of the VOA's decision is often not clear",
+      "It is felt that the Tribunal is used to make decisions that the VOA should make themselves",
+      "It can be a stressful and distressing experience - they report feeling powerless",
+      "Inspections are sometimes done from the outside - customers feel this is not sufficient"
+    ],
+    "updates": [
+      "The VOA provide no updates to customers throughout the process",
+      "The contact centre are unable to provide updates",
+      "Customers get very little contact from the VOA"
+    ],
+    "voa_staffing": [
+      "Cases can be handled by case officers in distant regions - 'How can they know anything about my situation?'"
+    ],
+    "voa_attitude": [
+      "Customers report a level of inflexibility on the part of the VOA - 'Once the VOA have made up their mind, that's that'",
+      "I felt that there was an attitude of we've made our decision, but we won't tell you the full reason why"
+    ]
+  },
+  "needs": [
+    "Help and guidance on all aspects of the process",
+    "An indication of timescales",
+    "A quick outcome",
+    "For new builds, for the CT band to be set up quickly",
+    "To be able to get CT estimates online",
+    "Explain more in the initial re-banding letter so customers don't have to call or get into a panic",
+    "24 hour call backs are ok, but it would be better if customers could get an answer when they call the first time",
+    "A quick and efficient service",
+    "Explain the process - help customers to understand what is expected and when",
+    "Provide worked examples of appeals to demonstrate how it works",
+    "If customers understood why their band was set at the level it was and it seemed reasonable, they would be less likely to appeal"
+  ],
+  "emotional_states": {
+    "new_property": "Happy - People want to do the right thing. They're helpful, provide information and amenable.",
+    "new_property_with_extension_cr10": "Frustrated/Confused - Unaware a change in band is coming. Reaction is frustration, anger, confusion. They require more handling.",
+    "band_challenges": "Angry/Hostile - Feel unfairly treated. Can be hostile."
+  },
+  "most_valued": [
+    "Contact with someone at the Valuation Office Agency",
+    "The ability to view neighbours' council tax bands on the VOA website"
+  ],
+  "statistics": {
+    "reviews_2015": 20000,
+    "proposals_2015": 36000,
+    "appeals_2015": 3500,
+    "success_rate_unrepresented": "33%",
+    "success_rate_represented": "27%"
+  },
+  "use_of_agents": "Those customers that did use agents tended to do so speculatively and only if directly approached by the agent. Even if the agent operated on a no-win no-fee basis, customers received very little communication until notification of an outcome.",
+  "the_tribunal": "The invitation to attend a Tribunal appeared to come as a shock to customers. It also was felt to be somewhat unnerving and, in some cases, frightening. For some this was felt to be too onerous for them to take on, so they did not continue beyond this point. Those that did attend Tribunal were broadly content with the experience, although the preparation of a case was felt to be quite involved and many people sought support from friends or relatives with a legal background to prepare.",
+  "voice_and_tone": "Speaks as an everyday person, not a professional. Uses plain language. Can be confused, frustrated, or anxious about the process. Doesn't understand legal or property jargon. Values straightforward communication and feels overwhelmed by bureaucracy."
+}

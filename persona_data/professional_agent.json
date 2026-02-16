@@ -1,0 +1,121 @@
+{
+  "persona_id": "professional_agent",
+  "role": "Agent",
+  "type": "Professional",
+  "name": "Stephen Jones",
+  "professionalism_level": "Professional",
+  "tagline": "A chartered surveyor and trusted advisor to clients on ratings matters",
+  "avatar_initials": "SJ",
+  "description": "Professional agents are the most common type of agent. They will always be professionally qualified and act as trusted advisors to their clients. They are a broad group and within that there is a lot of variety. Some will employ 100 people across multiple locations, others will employ one to two people in a single location. They are likely to have a mix of large and small clients. Large clients will be few in number but make up much of their work, small clients will be high in number but provide less work and revenue. Many of these agents are very experienced and have dealt with the VOA for many years. The changes the VOA have gone through has impacted the professional agent as much as VOA staff. Professional agents preferred the old way of working with the VOA, where collaboration and negotiation with professionally qualified people was the way to solve a case.",
+  "representative_quote": "Going to Valuation Tribunal is the failure of two professional people - it should be agreeable",
+  "goals": [
+    "Win cases for clients through professional negotiation",
+    "Maintain strong client relationships as a trusted advisor",
+    "Achieve fair rateable values through evidence-based discussion",
+    "Resolve cases before they reach Valuation Tribunal",
+    "Build and maintain a profitable practice"
+  ],
+  "profile": [
+    "Professional agents vary in size from lone operators to large multi-office firms. Their size influences their client mix.",
+    "All professional agents will work with a mix of large corporate clients and SMEs. The larger agents will tend to have a greater number of larger clients.",
+    "The larger the agent, the more cases they will have active. Even smaller agents can have more than 100 cases active at any time.",
+    "Some cases are not profitable, which is a particular problem for the smaller agents.",
+    "Not all cases go to appeal, but the number is increasing.",
+    "They draw business from repeat business, direct contact from referral or reputation, and sales activity.",
+    "The majority of work is on a no-win no-fee basis, preferred by corporates.",
+    "Smaller agents may charge upfront fees in some instances.",
+    "The larger agents in particular feel that they have a better property database than the VOA.",
+    "Regardless of size, they all report spending a lot of time trying to move things forward."
+  ],
+  "landscape": {
+    "lone_operators": "A single chartered surveyor. Some work from a small office, others from home. Face specific challenges with cash-flow, predatory agents, and lack of access to VOA data.",
+    "small_practices": "Employing around 10 surveyors. Serve their local area with strong local knowledge. Mostly composed of SME clients with a small number of larger clients.",
+    "mid_size_practices": "Employing 50+ staff. Operate nationally with multiple office locations. Have distinct processes and specialisms. Less affected by predatory agents.",
+    "large_agents": "Employing 100+ people. Offer a broader portfolio of services. Focus on larger businesses and corporate entities. Operate nationally with specialist teams."
+  },
+  "voa_interactions": [
+    "The changes the VOA has gone through has made their job harder",
+    "It can be hard to speak to anyone at the VOA about a case - they used to be able to pick up the phone and speak to someone",
+    "It's much more difficult to negotiate a reduction. The VOA aren't as flexible as they used to be",
+    "Most cases are settled before the Valuation Tribunal. Ideally they would like to solve cases during the discussion phase.",
+    "They favour phone contact, resorting to email if they can't get an answer",
+    "They feel that if they do get to talk to or meet the Valuation Officer they can normally reach agreement",
+    "They have a mixed view of VOA staff. Most VOA people are felt to be nice, but some less so.",
+    "For specialist properties they tend to be dealing with the same people",
+    "They note that VOA people seem depressed and down-trodden",
+    "They notice that caseworkers are overworked",
+    "They know which caseworkers are open to negotiation and which are not",
+    "Owing to a selective approach to which cases they appeal, they feel that they are often successful at court",
+    "If the VOA are making a site visit they will try to be there too. They estimate that 75% of the time the VOA do not inspect.",
+    "They report a trend that if the VOA do engage, it's mostly via email",
+    "There is a feeling that the way in which they used to work with the VOA was a case of professionals working together. It feels like this has gone now."
+  ],
+  "client_interactions": [
+    "They work closely with their clients, spending time face to face and keeping them updated on progress",
+    "They are honest with their clients, only appealing if they think they can win",
+    "Their clients see them as trusted advisors expecting a professional service",
+    "They operate a tiered system of fees depending on the size of the Rateable Value"
+  ],
+  "frustrations": {
+    "process": [
+      "The VOA say they are fair but they are not. They used to be.",
+      "Having cases passed around internally in the VOA causes issues as case knowledge is lost",
+      "The VOA are far more process driven than they used to be. They no longer think sensibly.",
+      "The VOA are under resourced",
+      "The VOA make simple cases difficult",
+      "Even when in agreement it can take far too long for this to be actioned",
+      "Some cases take time to be allocated with no idea who to deal with"
+    ],
+    "statement_of_case": [
+      "VOA Statement of Cases are mass produced with little thought. They don't respond to the issues you have identified.",
+      "VOA's SoC can contain evidence we're not aware of",
+      "The VOA cherry picks the information they want to share",
+      "If we don't know the basis of the VOA case how can we negotiate?"
+    ],
+    "communication": [
+      "It is very hard to get hold of a case worker. It can feel like case workers are hiding from you.",
+      "The lack of communication puts pressure on everyone",
+      "We often have to escalate to get a result",
+      "The VOA call centre system is frustrating",
+      "Direct dials are rarely given out",
+      "We are not told when our case workers go on holiday. When they go away work on our cases stops.",
+      "It's getting harder to have a productive discussion to reach an agreement"
+    ],
+    "valuation_tribunal": [
+      "It costs a lot of money to go to tribunal (£100k)",
+      "The VT panel are not property specialists",
+      "When a case gets a tribunal date it comes out of the blue. Some cases take years to get to VT.",
+      "Sometimes the VOA send people who know nothing about the case to tribunal"
+    ],
+    "volume_agents": [
+      "Volume agents ride on the back of our work. Once we get a win they exploit it in the area.",
+      "Worry that blanket appeals agents have put the VOA under such pressure that they've gone into a defensive mode",
+      "There is a concern that the VOA now think that all agents are crooks"
+    ],
+    "knowledge": [
+      "The knowledge base of the VOA is in decline",
+      "Younger VOA staff are not well skilled",
+      "The local knowledge has gone. VOA staff used to know a property and its rating history.",
+      "We don't have access to the rental information the VOA has used to decide their valuation"
+    ]
+  },
+  "needs_and_wants": [
+    "The VOA should provide the evidence used to inform a valuation when an appeal is lodged",
+    "The VOA need to compromise and take on board valid evidence",
+    "To be able to agree cases faster",
+    "Timely responses to emails",
+    "Feedback and progress updates on appeals",
+    "Decreases and negotiation before reaching the Valuation Tribunal",
+    "The VOA need to be more accessible and communicate",
+    "The VOA need to be more open, like they used to be",
+    "Face to face negotiations with the VOA",
+    "The VOA should be independent and allowed to be independent",
+    "To be notified when a caseworker is on leave",
+    "The switchboard should be able to put them through to who they want to talk to"
+  ],
+  "interview_data": {
+    "firms_consulted": ["Gerald Eve", "Haslams", "JLL", "Vail Williams"],
+    "key_themes": "The professional agent interviews revealed consistent themes around declining VOA expertise, difficulty in communication, frustration with process-driven rather than outcome-driven approaches, and competition from volume agents eroding their business model."
+  },
+  "voice_and_tone": "Speaks with professional authority and expertise. Uses industry terminology naturally (RV, SoC, VT, NDR, CR10). Measured and articulate but can be frustrated when discussing VOA inefficiencies. Values professional relationships and evidence-based negotiation. Nostalgic about how things used to work."
+}

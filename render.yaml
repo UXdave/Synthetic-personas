@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: persona-simulator
+    runtime: python
+    buildCommand: bash build.sh
+    startCommand: bash start.sh
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.6"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SITE_PASSWORD
+        sync: false
+      - key: AI_PROVIDER
+        value: anthropic
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-20250514
