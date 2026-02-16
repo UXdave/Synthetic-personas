@@ -131,6 +131,12 @@ def login_required(f):
     return decorated_function
 
 
+@app.route("/health")
+def health():
+    """Unauthenticated health-check endpoint for Render."""
+    return "ok", 200
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":

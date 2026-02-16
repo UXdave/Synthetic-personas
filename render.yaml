@@ -4,6 +4,7 @@ services:
     runtime: python
     buildCommand: bash build.sh
     startCommand: bash start.sh
+    healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.6"
