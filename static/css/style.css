@@ -1014,9 +1014,11 @@ body.page-chat .footer {
 
 body.page-chat .main-content {
     flex: 1;
+    min-height: 0;
     overflow: hidden;
 }
 
 body.page-chat {
+    height: 100vh;
     overflow: hidden;
 }
