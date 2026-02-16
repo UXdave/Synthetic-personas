@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                credentials: "include",
                 body: JSON.stringify({
                     persona_id: personaId,
                     messages: conversationHistory
@@ -183,7 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
     async function checkApiStatus() {
         try {
             const response = await fetch("/api/status", {
-                headers: { "Content-Type": "application/json" }
+                headers: { "Content-Type": "application/json" },
+                credentials: "include"
             });
             if (response.status === 401) return;
             const data = await response.json();
