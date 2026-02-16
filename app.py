@@ -12,6 +12,8 @@ from flask import (
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
+app.config["CACHE_BUST"] = secrets.token_hex(4)
 
 # Logging
 logging.basicConfig(level=logging.INFO)
