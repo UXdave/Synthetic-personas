@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 120000);
+            const timeoutId = setTimeout(() => controller.abort(), 180000);
 
             const response = await fetch("/api/chat", {
                 method: "POST",
@@ -88,43 +88,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
             clearTimeout(timeoutId);
 
-            // Handle session expiry - redirect to login
+            // Handle session expiry
             if (response.status === 401) {
+                setLoading(false);
                 addMessage("system", "Your session has expired. Redirecting to login...");
-                conversationHistory.pop(); // Remove the failed user message
-                setTimeout(() => { window.location.href = "/login"; }, 2000);
-                setLoading(false);
-                return;
-            }
-
-            // Try to parse JSON; handle non-JSON responses (e.g. proxy 502/503 HTML pages)
-            let data;
-            try {
-                data = await response.json();
-            } catch (parseErr) {
-                addMessage("system", `Server error (${response.status}). The AI service may be temporarily unavailable — please try again.`);
                 conversationHistory.pop();
-                setLoading(false);
+                setTimeout(() => { window.location.href = "/login"; }, 2000);
                 return;
             }
 
-            if (data.error) {
-                addMessage("system", data.error);
-                conversationHistory.pop(); // Remove the failed user message from history
-            } else {
-                addMessage("assistant", data.reply);
-                conversationHistory.push({ role: "assistant", content: data.reply });
+            // Validation errors come back as JSON
+            const contentType = response.headers.get("content-type") || "";
+            if (contentType.includes("application/json")) {
+                const data = await response.json();
+                setLoading(false);
+                addMessage("system", data.error || "Unknown error from server.");
+                conversationHistory.pop();
+                return;
             }
+
+            // --- Stream the SSE response ---
+            setLoading(false);
+            const { bubbleEl } = addMessage("assistant", "");
+            let fullReply = "";
+            let hadError = false;
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = "";
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split("\n");
+                // Keep the last (possibly incomplete) line in the buffer
+                buffer = lines.pop();
+
+                for (const line of lines) {
+                    if (!line.startsWith("data: ")) continue;
+                    const payload = line.slice(6);
+                    let parsed;
+                    try { parsed = JSON.parse(payload); } catch { continue; }
+
+                    if (parsed.error) {
+                        fullReply = parsed.error;
+                        bubbleEl.innerHTML = formatMessage(parsed.error);
+                        bubbleEl.closest(".message").className = "message message-system";
+                        hadError = true;
+                        break;
+                    }
+                    if (parsed.token) {
+                        fullReply += parsed.token;
+                        bubbleEl.innerHTML = formatMessage(fullReply);
+                        scrollToBottom();
+                    }
+                    // parsed.done — stream finished
+                }
+                if (hadError) break;
+            }
+
+            if (hadError || !fullReply) {
+                conversationHistory.pop();
+            } else {
+                conversationHistory.push({ role: "assistant", content: fullReply });
+            }
+
         } catch (err) {
+            setLoading(false);
             if (err.name === "AbortError") {
                 addMessage("system", "Request timed out. The AI service took too long to respond — please try again.");
             } else {
                 addMessage("system", "Connection error. Please check your network and try again.");
             }
-            conversationHistory.pop(); // Remove the failed user message
+            conversationHistory.pop();
         }
-
-        setLoading(false);
     });
 
     async function checkApiStatus() {
@@ -132,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("/api/status", {
                 headers: { "Content-Type": "application/json" }
             });
-            if (response.status === 401) return; // Session issue, login redirect will handle
+            if (response.status === 401) return;
             const data = await response.json();
             if (!data.ready) {
                 addStatusBanner("AI service is not configured. An API key must be set in the server environment for chat to work.");
@@ -169,13 +208,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const bubbleDiv = document.createElement("div");
         bubbleDiv.className = "message-bubble";
-        bubbleDiv.innerHTML = formatMessage(content);
+        bubbleDiv.innerHTML = content ? formatMessage(content) : "";
 
         messageDiv.appendChild(avatarDiv);
         messageDiv.appendChild(bubbleDiv);
         chatMessages.appendChild(messageDiv);
 
         scrollToBottom();
+
+        return { bubbleEl: bubbleDiv };
     }
 
     function formatMessage(text) {
