@@ -46,7 +46,7 @@ AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic")  # "anthropic" or "open
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o")
-ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-20250514")
+ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-5-20250929")
 
 # Startup diagnostics
 logger.info("AI_PROVIDER=%s", AI_PROVIDER)

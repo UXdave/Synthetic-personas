@@ -212,11 +212,25 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.status === 401) return;
             const data = await response.json();
             if (!data.ready) {
-                addStatusBanner("AI service is not configured. An API key must be set in the server environment for chat to work.");
+                disableChat("ANTHROPIC_API_KEY is not set. Chat will not work until an API key is added in the Render dashboard under Environment Variables.");
             }
         } catch (err) {
             // Silently ignore - errors will surface when user tries to chat
         }
+    }
+
+    function disableChat(message) {
+        // Replace the welcome screen with a prominent error
+        chatMessages.innerHTML = "";
+        const banner = document.createElement("div");
+        banner.className = "chat-status-banner chat-status-blocked";
+        banner.innerHTML = "<strong>Chat unavailable</strong><br>" + message;
+        chatMessages.appendChild(banner);
+
+        // Disable the input so it's obvious
+        chatInput.disabled = true;
+        chatInput.placeholder = "Chat unavailable — see message above";
+        sendBtn.disabled = true;
     }
 
     function addStatusBanner(message) {

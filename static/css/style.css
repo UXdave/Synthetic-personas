@@ -1007,6 +1007,17 @@ a {
     text-align: center;
 }
 
+.chat-status-blocked {
+    background: #FEF2F2;
+    border: 2px solid #FECACA;
+    color: var(--danger);
+    padding: var(--space-xl) var(--space-lg);
+    font-size: 1rem;
+    margin: auto;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
 /* Hide footer on chat page */
 body.page-chat .footer {
     display: none;
