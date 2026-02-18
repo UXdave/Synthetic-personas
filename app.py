@@ -218,19 +218,76 @@ def api_chat():
     for msg in messages:
         api_messages.append({"role": msg["role"], "content": msg["content"]})
 
-    if provider == "anthropic":
-        gen = _stream_anthropic(system_prompt, api_messages)
-    else:
-        gen = _stream_openai(system_prompt, api_messages)
+    # Use non-streaming mode by default for proxy compatibility (Render).
+    # Client can request streaming with ?stream=true.
+    wants_stream = request.args.get("stream", "false").lower() == "true"
 
-    return Response(
-        gen,
-        mimetype="text/event-stream",
-        headers={
-            "Cache-Control": "no-cache",
-            "X-Accel-Buffering": "no",
-        },
+    if wants_stream:
+        if provider == "anthropic":
+            gen = _stream_anthropic(system_prompt, api_messages)
+        else:
+            gen = _stream_openai(system_prompt, api_messages)
+
+        return Response(
+            gen,
+            mimetype="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache",
+                "X-Accel-Buffering": "no",
+                "Connection": "keep-alive",
+            },
+        )
+
+    # Non-streaming: collect the full reply and return JSON
+    try:
+        if provider == "anthropic":
+            reply = _call_anthropic(system_prompt, api_messages)
+        else:
+            reply = _call_openai(system_prompt, api_messages)
+        return jsonify({"reply": reply})
+    except Exception as e:
+        logger.exception("Chat API error (provider=%s)", provider)
+        return jsonify({"error": str(e)}), 502
+
+
+def _call_anthropic(system_prompt, api_messages):
+    """Non-streaming Anthropic call — returns the full reply text."""
+    import anthropic
+
+    try:
+        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY, timeout=120.0)
+        response = client.messages.create(
+            model=ANTHROPIC_MODEL,
+            max_tokens=2048,
+            system=system_prompt,
+            messages=api_messages,
+        )
+        return response.content[0].text
+    except anthropic.AuthenticationError:
+        raise RuntimeError("The Anthropic API key is invalid. Please check ANTHROPIC_API_KEY in the Render dashboard.")
+    except anthropic.RateLimitError:
+        raise RuntimeError("Rate limit exceeded. Please wait a moment and try again.")
+    except anthropic.APIConnectionError:
+        raise RuntimeError("Could not connect to the Claude API. Please try again later.")
+    except anthropic.APITimeoutError:
+        raise RuntimeError("The Claude API request timed out. Please try again.")
+    except anthropic.BadRequestError as e:
+        raise RuntimeError(f"Claude API rejected the request — check that model '{ANTHROPIC_MODEL}' is valid: {e}")
+
+
+def _call_openai(system_prompt, api_messages):
+    """Non-streaming OpenAI call — returns the full reply text."""
+    from openai import OpenAI
+
+    client = OpenAI(api_key=OPENAI_API_KEY, timeout=120.0)
+    oai_messages = [{"role": "system", "content": system_prompt}] + api_messages
+    response = client.chat.completions.create(
+        model=OPENAI_MODEL,
+        messages=oai_messages,
+        temperature=0.7,
+        max_tokens=2048,
     )
+    return response.choices[0].message.content
 
 
 def _stream_anthropic(system_prompt, api_messages):

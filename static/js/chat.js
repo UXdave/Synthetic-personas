@@ -120,76 +120,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Validation / auth errors come back as JSON
-            const contentType = response.headers.get("content-type") || "";
-            if (contentType.includes("application/json")) {
-                const data = await response.json();
-                setLoading(false);
-                addMessage("system", data.error || "Unknown error from server.");
-                conversationHistory.pop();
-                return;
-            }
+            // Parse JSON response (both success and error come as JSON now)
+            const data = await response.json();
 
-            // Non-2xx that isn't JSON (e.g. Render 502 HTML page)
-            if (!response.ok) {
-                setLoading(false);
-                addMessage("system", `Server error (${response.status}). Please try again in a moment.`);
-                conversationHistory.pop();
-                return;
-            }
-
-            // --- Stream the SSE response ---
             setLoading(false);
-            const { bubbleEl } = addMessage("assistant", "");
-            let fullReply = "";
-            let hadError = false;
 
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder();
-            let buffer = "";
-
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-
-                buffer += decoder.decode(value, { stream: true });
-                const lines = buffer.split("\n");
-                // Keep the last (possibly incomplete) line in the buffer
-                buffer = lines.pop();
-
-                for (const line of lines) {
-                    if (!line.startsWith("data: ")) continue;
-                    const payload = line.slice(6);
-                    let parsed;
-                    try { parsed = JSON.parse(payload); } catch { continue; }
-
-                    if (parsed.error) {
-                        fullReply = parsed.error;
-                        bubbleEl.innerHTML = formatMessage(parsed.error);
-                        bubbleEl.closest(".message").className = "message message-system";
-                        hadError = true;
-                        break;
-                    }
-                    if (parsed.token) {
-                        fullReply += parsed.token;
-                        bubbleEl.innerHTML = formatMessage(fullReply);
-                        scrollToBottom();
-                    }
-                    // parsed.done — stream finished
-                }
-                if (hadError) break;
-            }
-
-            // Remove empty bubble if stream produced nothing
-            if (!fullReply && !hadError) {
-                bubbleEl.closest(".message").remove();
-                addMessage("system", "No response received. Please try again.");
-            }
-
-            if (hadError || !fullReply) {
+            if (!response.ok || data.error) {
+                addMessage("system", data.error || `Server error (${response.status}).`);
                 conversationHistory.pop();
+                return;
+            }
+
+            if (data.reply) {
+                addMessage("assistant", data.reply);
+                conversationHistory.push({ role: "assistant", content: data.reply });
             } else {
-                conversationHistory.push({ role: "assistant", content: fullReply });
+                addMessage("system", "No response received. Please try again.");
+                conversationHistory.pop();
             }
 
         } catch (err) {
@@ -197,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (err.name === "AbortError") {
                 addMessage("system", "Request timed out. The AI service took too long to respond — please try again.");
             } else {
-                addMessage("system", "Connection error. Please check your network and try again.");
+                addMessage("system", "Connection error (" + err.message + "). Please check your network and try again.");
             }
             conversationHistory.pop();
         }
