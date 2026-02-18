@@ -1,0 +1,11 @@
+{
+  "generated_files": [
+    "data/dossiers/pa01_council_tax_payer.txt",
+    "data/dossiers/pa02_integrated_agent.txt",
+    "data/dossiers/pa03_landlord.txt",
+    "data/dossiers/pa04_local_authority.txt",
+    "data/dossiers/pa05_professional_agent.txt",
+    "data/dossiers/pa06_sme.txt",
+    "data/dossiers/pa07_volume_agent.txt"
+  ]
+}

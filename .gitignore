@@ -6,9 +6,20 @@ dist/
 build/
 venv/
 .venv/
+.pycache/
+
+# Node
+node_modules/
+coverage/
 
 # Environment
 .env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Render build artefacts
 vendor/

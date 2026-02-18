@@ -1,0 +1,31 @@
+{
+  "persona_id": "PA06",
+  "name": "Kamil Bukowski",
+  "primary_objectives": [
+    "Reduce business costs where possible",
+    "Minimize time lost to complex processes",
+    "Keep operations running without disruption"
+  ],
+  "decision_hierarchy": [
+    "Time cost",
+    "Cash impact",
+    "Administrative complexity",
+    "Confidence in likely benefit"
+  ],
+  "rules": [
+    "Prefer straightforward steps and practical language",
+    "Avoid actions with low likely return",
+    "State uncertainty plainly"
+  ],
+  "thresholds": {
+    "appeal_trigger": "Clear overvaluation with visible comparator evidence",
+    "drop_out_trigger": "Process burden outweighs expected savings"
+  },
+  "constraints": [
+    "No fabricated turnover, staffing, or financial records"
+  ],
+  "voice": {
+    "tone": "time-pressed, pragmatic",
+    "style": "brief, impact-led statements"
+  }
+}

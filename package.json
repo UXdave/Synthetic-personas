@@ -1,0 +1,12 @@
+{
+  "name": "synthetic-persona-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "AUTH_ENABLED=false node server.js",
+    "ingest": "python3 scripts/ingest_personas.py",
+    "check": "node scripts/check.js"
+  }
+}

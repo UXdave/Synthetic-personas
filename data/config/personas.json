@@ -1,0 +1,79 @@
+[
+  {
+    "id": "pa01",
+    "code": "PA01",
+    "name": "Stephen Jones",
+    "persona_type": "Council Tax Payer",
+    "tagline": "Careful, fairness-driven household decision maker",
+    "dossier_path": "data/dossiers/pa01_council_tax_payer.txt",
+    "policy_path": "data/policies/persona_PA01_stephen_jones.json",
+    "api_key_env": "OPENAI_API_KEY_PA01",
+    "model_env": "OPENAI_MODEL_PA01"
+  },
+  {
+    "id": "pa02",
+    "code": "PA02",
+    "name": "Amelia Ward",
+    "persona_type": "Integrated Agent",
+    "tagline": "Cross-functional rating specialist balancing volume and quality",
+    "dossier_path": "data/dossiers/pa02_integrated_agent.txt",
+    "policy_path": "data/policies/persona_PA02_amelia_ward.json",
+    "api_key_env": "OPENAI_API_KEY_PA02",
+    "model_env": "OPENAI_MODEL_PA02"
+  },
+  {
+    "id": "pa03",
+    "code": "PA03",
+    "name": "Jonathan Wilson",
+    "persona_type": "Landlord",
+    "tagline": "Commercial landlord focused on reliable monthly performance",
+    "dossier_path": "data/dossiers/pa03_landlord.txt",
+    "policy_path": "data/policies/persona_PA03_jonathan_wilson.json",
+    "api_key_env": "OPENAI_API_KEY_PA03",
+    "model_env": "OPENAI_MODEL_PA03"
+  },
+  {
+    "id": "pa04",
+    "code": "PA04",
+    "name": "Rachel Hughes",
+    "persona_type": "Local Authority",
+    "tagline": "Public service professional balancing policy, volume, and outcomes",
+    "dossier_path": "data/dossiers/pa04_local_authority.txt",
+    "policy_path": "data/policies/persona_PA04_rachel_hughes.json",
+    "api_key_env": "OPENAI_API_KEY_PA04",
+    "model_env": "OPENAI_MODEL_PA04"
+  },
+  {
+    "id": "pa05",
+    "code": "PA05",
+    "name": "Claire Dalton",
+    "persona_type": "Professional Agent",
+    "tagline": "Senior advisor prioritizing evidence, speed, and tribunal readiness",
+    "dossier_path": "data/dossiers/pa05_professional_agent.txt",
+    "policy_path": "data/policies/persona_PA05_claire_dalton.json",
+    "api_key_env": "OPENAI_API_KEY_PA05",
+    "model_env": "OPENAI_MODEL_PA05"
+  },
+  {
+    "id": "pa06",
+    "code": "PA06",
+    "name": "Kamil Bukowski",
+    "persona_type": "SME",
+    "tagline": "Small business operator under time pressure and cash constraints",
+    "dossier_path": "data/dossiers/pa06_sme.txt",
+    "policy_path": "data/policies/persona_PA06_kamil_bukowski.json",
+    "api_key_env": "OPENAI_API_KEY_PA06",
+    "model_env": "OPENAI_MODEL_PA06"
+  },
+  {
+    "id": "pa07",
+    "code": "PA07",
+    "name": "Zoe Patterson",
+    "persona_type": "Volume Agent",
+    "tagline": "High-throughput appeals operator optimizing repeatable workflows",
+    "dossier_path": "data/dossiers/pa07_volume_agent.txt",
+    "policy_path": "data/policies/persona_PA07_zoe_patterson.json",
+    "api_key_env": "OPENAI_API_KEY_PA07",
+    "model_env": "OPENAI_MODEL_PA07"
+  }
+]

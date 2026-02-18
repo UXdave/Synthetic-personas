@@ -1,24 +1,35 @@
 services:
   - type: web
-    name: persona-simulator
-    runtime: python
-    buildCommand: bash build.sh
-    startCommand: bash start.sh
-    healthCheckPath: /health
+    name: synthetic-persona-platform
+    runtime: node
+    plan: starter
+    autoDeploy: true
+    buildCommand: npm install --no-audit --no-fund
+    startCommand: npm start
     envVars:
-      - key: PYTHON_VERSION
-        value: "3.11.6"
-      - key: SECRET_KEY
-        generateValue: true
-      - key: SITE_PASSWORD
-        sync: false
-      - key: AI_PROVIDER
-        value: anthropic
-      - key: OPENAI_API_KEY
-        sync: false
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_ENABLED
+        value: "true"
       - key: OPENAI_MODEL
-        value: gpt-4o
-      - key: ANTHROPIC_API_KEY
+        value: gpt-4.1-mini
+      - key: APP_USERNAME
         sync: false
-      - key: ANTHROPIC_MODEL
-        value: claude-sonnet-4-20250514
+      - key: APP_PASSWORD
+        sync: false
+      - key: OPENAI_API_KEY_PA01
+        sync: false
+      - key: OPENAI_API_KEY_PA02
+        sync: false
+      - key: OPENAI_API_KEY_PA03
+        sync: false
+      - key: OPENAI_API_KEY_PA04
+        sync: false
+      - key: OPENAI_API_KEY_PA05
+        sync: false
+      - key: OPENAI_API_KEY_PA06
+        sync: false
+      - key: OPENAI_API_KEY_PA07
+        sync: false

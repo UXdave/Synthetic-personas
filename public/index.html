@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthetic Persona Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-glow" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Synthetic Persona Platform</span>
+      </div>
+      <p class="topbar-note">Built for structured roleplay with dossier-grounded personas.</p>
+    </header>
+
+    <main class="layout">
+      <section id="homeView" class="view view-active" aria-label="Persona Selection">
+        <div class="hero">
+          <p class="eyebrow">Transform-aligned Experience</p>
+          <h1>Choose a Persona</h1>
+          <p>
+            Each persona runs through its own dedicated GPT/project key, using only dossier files in this repository.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Available Personas</h2>
+            <span id="personaCount" class="pill">0 loaded</span>
+          </div>
+          <div id="personaGrid" class="persona-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="chatView" class="view" aria-label="Persona Chat">
+        <div class="chat-header">
+          <button id="backButton" class="ghost-button" type="button">Back to Personas</button>
+          <div>
+            <h2 id="chatTitle">Persona</h2>
+            <p id="chatSubtitle"></p>
+          </div>
+        </div>
+
+        <div class="chat-shell">
+          <aside class="chat-sidebar">
+            <h3>Interaction Mode</h3>
+            <div class="mode-group" role="radiogroup" aria-label="Interaction mode">
+              <label><input type="radio" name="mode" value="interview" checked /> Interview</label>
+              <label><input type="radio" name="mode" value="scenario" /> Scenario</label>
+              <label><input type="radio" name="mode" value="usability" /> Usability</label>
+            </div>
+
+            <div class="ooc-panel">
+              <h3>Out of Character Commands</h3>
+              <ul>
+                <li><code>OOC:</code> Ask for out-of-character clarification.</li>
+                <li><code>/persona-summary</code> Traits, needs, pains, and unknowns.</li>
+                <li><code>/assumptions</code> Gaps being filled by inference.</li>
+                <li><code>/debrief</code> Summary of insights from this roleplay.</li>
+                <li><code>/meta</code> How the dossier is being interpreted.</li>
+              </ul>
+            </div>
+
+            <div class="source-note">
+              <p>Data policy: responses are grounded to local dossier files and persona policy JSON only.</p>
+            </div>
+          </aside>
+
+          <section class="chat-main">
+            <div id="messages" class="messages" aria-live="polite"></div>
+            <form id="chatForm" class="composer">
+              <label class="sr-only" for="chatInput">Message</label>
+              <textarea id="chatInput" rows="3" placeholder="Type your message to begin roleplay..." required></textarea>
+              <button id="sendButton" type="submit">Send</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <p class="message-role"></p>
+        <p class="message-text"></p>
+      </article>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
